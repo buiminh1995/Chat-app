@@ -6,18 +6,18 @@ view.showComponents = function(name){
         case 'register': {
             let app = document.getElementById('app')
             app.innerHTML = components.register
-            
+
             let link = document.getElementById('form-link')
-            link.onclick = linkClickHandler 
+            link.onclick = linkClickHandler
 
             let form = document.getElementById('form-register')
             form.onsubmit = formSubmitHandler
-            
+
             function linkClickHandler (){
                 view.showComponents('logIn')
             }
             function formSubmitHandler (e){
-                e.preventDefault() // de ko lag
+                e.preventDefault()
                 let registerInfo = {
                     firstname: form.firstname.value,
                     lastname: form.lastname.value,
@@ -83,10 +83,10 @@ view.showComponents = function(name){
                 view.showComponents('register')
             }
             function formSubmitHandler(e) {
-                e.preventDefault() // chan nhay trang
-                //1. lay du lieu nguoi dung dien vao form
-                //2. validate thong tin
-                //3. Gui thong tin nguoi dung len server
+                e.preventDefault()
+                //1. get user input in log in form
+                //2. validate user input
+                //3. send user input to firebase
                 let logInInfo = {
                     email: form.email.value,
                     password: form.password.value
@@ -96,20 +96,20 @@ view.showComponents = function(name){
                     //
                     view.setText('email-error', '')
                 } else {
-                    //hien thi loi
-                    //document.getElementById('email-error').innerText = "Invalid email!"  
-                    view.setText('email-error', 'Invalid email!')             
+                    //Error
+                    //document.getElementById('email-error').innerText = "Invalid email!"
+                    view.setText('email-error', 'Invalid email!')
                 }
                 if(logInInfo.password){
                     //document.getElementById('password-error').innerText = " "
                     //
                     view.setText('password-error', '')
                 } else {
-                    //hien thi loi
+                    //Invalid information
                     //document.getElementById('password-error').innerText = "Invalid password!"
                     view.setText('password-error', 'Invalid password!')
                 }
-                //Gui thong tin nguoi dung
+                //authenticate user
                 if(logInInfo.email
                     &&logInInfo.password){
                         controller.logIn(logInInfo)
@@ -120,11 +120,11 @@ view.showComponents = function(name){
         case 'chat': {
             let app = document.getElementById('app')
             app.innerHTML = components.navBar
-            app.innerHTML += components.chat //chat o duoi navBar
+            app.innerHTML += components.chat //chat below navBar
 
             let chatForm = document.getElementById('chat-form')
-            chatForm.onsubmit = chatFormSubmitHandler // tai sao ko co ()
-            
+            chatForm.onsubmit = chatFormSubmitHandler
+
             let signOutBtn  = document.getElementById('sign-out-btn')
             signOutBtn.onclick = SignOutHandler
 
@@ -142,7 +142,7 @@ view.showComponents = function(name){
                 let friendEmail = formAddConversation.friendEmail.value
                 let btnAdd = document.getElementById('add-conversation-btn')
                 btnAdd.setAttribute('disabled', true)
-                //kiem tra xem email co ton tai trong he thong hay khong
+                //check if email in database
                 //validate friendEmail != model.authUser.email
                 try {
                     let resultValidate = await firebase.auth().fetchSignInMethodsForEmail(friendEmail)
@@ -166,8 +166,8 @@ view.showComponents = function(name){
 
                 }
                 btnAdd.removeAttribute('disabled')
-                
-                
+
+
             }
 
             function chatFormSubmitHandler(e){
@@ -203,16 +203,16 @@ view.showConversation = function(conversation){
             }
             let html = `
             <div class="${className}">
-                <span>${message.content}</span> 
-            </div> 
+                <span>${message.content}</span>
+            </div>
             `
             chatMessages.innerHTML += html
         }
     //scroll to bottom
     chatMessages.scrollTop = chatMessages.scrollHeight - chatMessages.clientHeight
     // scrollHeight: tổng chiều cao có thể scroll
-    // scrollTop: Chiều cao người dùng đã lăn 
-    //clientHeight: chiều cao người dùng nhìn thấy 
+    // scrollTop: Chiều cao người dùng đã lăn
+    //clientHeight: chiều cao người dùng nhìn thấy
     }
 }
 
@@ -239,9 +239,8 @@ view.showListConversations = function(conversations){
     }
 
 }
-// kiem tra email
+// check email
 function validateEmail(email) {
     let regEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     return email && regEmail.test(email)
-} // tim hieu reg (regular expression)
-//3. Gui thong tin nguoi dung len server
+}

@@ -1,7 +1,7 @@
 const components = {}
 components.register = `
 <section class ="register-container">
-        <div class = "form-container"> //tai sao nhung hai class form-container
+        <div class = "form-container">
             <div class = "form-container">
                 <div class = "form-header">
                     <span>MindX Chat</span>
@@ -17,7 +17,7 @@ components.register = `
                                     <input type="text" name="lastname" placeholder ="Lastname" />
                                     <div id= "lastname-error" class= "message-error"></div>
                                 </div>
-                                
+
                         </div>
                         <div class = "input-wrapper">
                                 <input type="email" name="email" placeholder ="Email" />

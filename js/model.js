@@ -20,12 +20,12 @@ model.saveConversations = function(conversations) {
 
 model.saveActiveConversation = function(conversationId){
     if(model.conversations instanceof Array) {
-    //remove active class of previous div conversation 
+    //remove active class of previous div conversation
         if(model.activeConversation) {
             let prevDiv = document.getElementById(model.activeConversation.id)
             prevDiv.classList.remove('active')
         }
-    // add active class to current div conversation 
+    // add active class to current div conversation
         let currentDiv = document.getElementById(conversationId)
         currentDiv.classList.add('active')
     //update model.activeConversation
@@ -39,7 +39,7 @@ model.saveActiveConversation = function(conversationId){
     }
 }
 model.updateConversationChange = function(conversation) {
-    //1. find if(model.conversations contains conversation) 
+    //1. find if(model.conversations contains conversation)
     //->update conversation to model.conversations
 
     //2. if(not found)
@@ -48,8 +48,8 @@ model.updateConversationChange = function(conversation) {
     //3. if(conversation is model.activeConversation)
     // update to view
     let foundIndex = model.conversations.findIndex(function(element) {
-        return element.id == conversation.id //trả về cái gì?-> index of first element that passes the test
-        
+        return element.id == conversation.id //returns index of first element that passes the test
+
     })
     if(foundIndex >= 0) {
         //1.

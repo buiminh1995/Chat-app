@@ -14,22 +14,23 @@ controller.register = async function (registerInfo) {
         view.setText('register-success', '')
         view.setText('register-error', error.message)
     }
-    // ham create user la 1 hang bat dong bo >> phai (wait) doi no
+    // createUserWithEmailAndPassword is async >> must wait
     document.getElementById('register-btn').removeAttribute('disabled')
 }
-//ko hieu controller.logIn
+
+
 controller.logIn = async function (logInInfo) {
     document.getElementById('log-in-btn').setAttribute('disabled', true)
     try {
         let result = await firebase.auth().signInWithEmailAndPassword(logInInfo.email, logInInfo.password)
-        //1. chua verify email >> bao nguoi dung verify
-        //2. da verify email >> dieu huong sang man hinh chat
+        //1. if not yet verify email >> tell user to verify
+        //2. if already verify >> go to chat screen
         //signIn >> authStateChanged >> authStateChangedHandler >> load
 
         // if (result.user.emailVerified) {
         //     model.authen(result.user)
         //     view.showComponents('chat')
-        //     controller.loadConversations(result.user.email) // result là một object 
+        //     controller.loadConversations(result.user.email) // result là một object
         // } else {
         //     throw new Error('Email not verified!')
         // }
@@ -43,8 +44,8 @@ controller.logIn = async function (logInInfo) {
 }
 
 controller.initApp = function () {
-    //1. Kiem tra xem nguoi dung dang dang nhap >> hien thi man hinh chat
-    //2. Neu ko co nguoi dung dang nhap >> hien thi man hinh log in
+    //1. if the user already signed in >> display chat screen
+    //2. else >> display log in screen
     view.showComponents('loading')
     firebase.auth().onAuthStateChanged(authStateChangedHandler)
 
@@ -61,8 +62,8 @@ controller.initApp = function () {
     }
 }
 controller.loadConversations = function (email) {
-    firebase.firestore().collection("conversations") // gọi lên firebase
-        .where("users", "array-contains", email) // ko hiểu hai dòng này
+    firebase.firestore().collection("conversations") // get conversations from firebase
+        .where("users", "array-contains", email)
         .onSnapshot(snapshotHandler)
     function snapshotHandler(snapshot) {
         //1. First loading
@@ -98,10 +99,10 @@ controller.loadConversations = function (email) {
     }
 }
 
-controller.sendMessage = async function (messageContent) { //ko hiểu function này // gửi thông tin lên firebase
+controller.sendMessage = async function (messageContent) { //send conversation to firebase
     if (model.activeConversation) {
         messageContent = messageContent.trim()
-        if(messageContent) { // kiem tra chuoi != rong
+        if(messageContent) { // if message content is not empty
         let message = {
             content: messageContent,
             owner: model.authUser.email,

@@ -186,8 +186,8 @@ button:disabled {
 .conversation .conversation:hover {
     cursor: pointer;
 }
-/* vua co class conversation vua co class active */
-.conversations .conversation.active { 
+/* has both conversations and conversation.active */
+.conversations .conversation.active {
     box-shadow: 2px 2px #b2b2b2;
     background: #f2f2f2;
 }
@@ -196,7 +196,7 @@ button:disabled {
     width: 100%;
     height: 40px;
     display: flex;
-    justify-content: flex-end; /*day sang ben phai */
+    justify-content: flex-end; /*push to the right */
     background:#5454e6;
     color:#ffffff;
     font-size: 13px;
