@@ -106,7 +106,7 @@ components.loading = `
 components.navBar = `
     <nav class="main-nav-bar">
         <div id="user-profile-container" class="user-profile-container">
-            <span id="user-email" class="user-email">buiminh2000@gmail.com</span>
+            <span id="user-email" class="user-email"></span>
             <button id="sign-out-btn">Sign out</button>
         </div>
     </nav>

@@ -120,6 +120,8 @@ view.showComponents = function(name){
         case 'chat': {
             let app = document.getElementById('app')
             app.innerHTML = components.navBar
+            let user_email = document.getElementById('user-email')
+            user_email.innerHTML = model.authUser.email
             app.innerHTML += components.chat //chat below navBar
 
             let chatForm = document.getElementById('chat-form')
