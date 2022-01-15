@@ -74,15 +74,18 @@ controller.loadConversations = function (email) {
         //         conversations.push(conversation)
         //     }
         // let conversations = []
+        if(model.conversations == null) {
         let conversations = snapshot.docs.map(function(doc){
             let conversation = doc.data()
             conversation.id = doc.id
             return conversation
         })
+        //console.log(model.activeConversation)
             model.saveConversations(conversations)
             if (conversations.length) {
-                model.saveActiveConversation(conversations[0].id)
+              model.saveActiveConversation(conversations[0].id)
             }
+          }
             else {
             //2. database change >> update
             for (let docChange of snapshot.docChanges()) {

@@ -4,7 +4,7 @@ components.register = `
         <div class = "form-container">
             <div class = "form-container">
                 <div class = "form-header">
-                    <span>MindX Chat</span>
+                    <span>Chat App</span>
                 </div>
                 <form id = "form-register">
                         <div class = "name-wrapper">
@@ -47,7 +47,7 @@ components.register = `
  <section class ="log-in-container">
         <div class = "form-container">
                 <div class = "form-header">
-                    <span>MindX Chat</span>
+                    <span>Chat App</span>
                 </div>
                 <form id = "form-log-in">
                         <div class = "input-wrapper">
