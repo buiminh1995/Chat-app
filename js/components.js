@@ -64,6 +64,13 @@ components.register = `
                             <button id="log-in-btn">Log in</button>
                         </div>
                 </form>
+                <div class="username_pass">
+                To test the chat feature of this app: <br>
+                - Enter either tenetnolanbest@gmail.com or longokela@gmail.com as user email. <br>
+                - Password of both accounts is 123456 <br>
+                - Open the chat app in another window and enter the remaining email account. <br>
+                - These two accounts are chatting with each other under a conversation named 'tenet' <br>
+                </div>
         </div>
 </section>
 `
