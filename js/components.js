@@ -66,10 +66,11 @@ components.register = `
                 </form>
                 <div class="username_pass">
                 To test the chat feature of this app: <br>
-                - Enter either tenetnolanbest@gmail.com or longokela@gmail.com as user email. <br>
+                - Enter either tenetnolanbest@gmail.com or longokela@gmail.com as user email <br>
                 - Password of both accounts is 123456 <br>
-                - Open the chat app in another window and enter the remaining email account. <br>
-                - These two accounts are chatting with each other under a conversation named 'test' <br>
+                - Send a message under the conversation named 'test'
+                - Sign out and enter the remaining email account <br>
+                - You will see your message sent to this account as these two accounts are chatting with each other <br>
                 </div>
         </div>
 </section>
