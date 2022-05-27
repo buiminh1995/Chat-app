@@ -70,7 +70,7 @@ components.register = `
                 - Password of both accounts is 123456 <br>
                 - Send a message under the conversation named 'test' <br>
                 - Sign out and enter the remaining email account <br>
-                - You will see your message sent to this account as these two accounts are chatting with each other in the conversation named 'test' <br>
+                - You will see your message sent to this account as these two accounts are chatting with each other under the conversation named 'test' <br>
                 </div>
         </div>
 </section>
