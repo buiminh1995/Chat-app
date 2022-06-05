@@ -59,7 +59,7 @@
 ## About The Project
 
 ![Product Name Screen Shot](https://github.com/buiminh1995/Chat-app/blob/master/imgs/Screen%20Shot%202022-05-31%20at%209.58.31%20PM.png)
-![Product Name Screen Shot](https://github.com/buiminh1995/Chat-app/blob/master/imgs/Screen%20Shot%202022-05-31%20at%209.58.31%20PM.png)
+![Product Name Screen Shot](https://github.com/buiminh1995/Chat-app/blob/master/imgs/Screen%20Shot%202022-06-05%20at%2012.02.56%20PM.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
