@@ -60,9 +60,9 @@
 * A chat app that allows the user to create an account, sign in, and send messages to other users
 * Made with JavaScript, HTML, CSS, and Firebase. Used Firebase API for database and user authentication
 </br>
-![Product Name Screen Shot](https://github.com/buiminh1995/Chat-app/blob/master/imgs/Screen%20Shot%202022-05-31%20at%209.58.31%20PM.png)
+<img src="https://github.com/buiminh1995/Chat-app/blob/master/imgs/Screen%20Shot%202022-05-31%20at%209.58.31%20PM.png">
 </br>
-![Product Name Screen Shot](https://github.com/buiminh1995/Chat-app/blob/master/imgs/Screen%20Shot%202022-06-05%20at%2012.02.56%20PM.png)
+<img src="https://github.com/buiminh1995/Chat-app/blob/master/imgs/Screen%20Shot%202022-06-05%20at%2012.02.56%20PM.png">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -80,6 +80,6 @@
 
 
 <!-- Download project -->
-## Download project
+## Download Project
 
 Click on "Code". To download the project, either click on "Download ZIP" or write git clone https://github.com/buiminh1995/Chat-app.git on terminal
